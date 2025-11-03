@@ -43,7 +43,7 @@ class Program
             gradeSign = "-";
         }
         
-        Console.WriteLine($"Grade for this Class {letterGrade}{gradeSign}");
+        Console.WriteLine($"Grade for this Class: {letterGrade}{gradeSign}");
 
         if (gradeNumber >= 70)
         {
