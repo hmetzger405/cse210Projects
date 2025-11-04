@@ -2,12 +2,22 @@ using System;
 
 class Program
 {
-    static void testValues(int x, float y, double z)
+    static void TestValues(int x, float y, double z)
     {
         Console.WriteLine($"The values are: {x}, {y}, {z}");
     }
+
+    static int AddValues(int n1, int n2, int n3)
+    {
+        int total = n1 + n2 + n3;
+        return total;
+    }
     static void Main(string[] args)
     {
+        TestValues(10, (float)123.321, 123.32432432423424);
+
+        int total = AddValues(10, 20, 30);
+        Console.WriteLine($"The total is {total}");
         /*Console.WriteLine("Hello Sandbox World!");
         string firstName;
         string lastName;
@@ -53,7 +63,7 @@ class Program
                 done = true;
                 Console.WriteLine($"Super age: {age}");
             }
-        } while(!done); */
+        } while(!done); 
 
         List<int> numbers = new List<int>();
         numbers.Add(10);
@@ -64,6 +74,6 @@ class Program
         {
             Console.WriteLine($"The number is {n}");
         }
-        
+        */
     }
 }
