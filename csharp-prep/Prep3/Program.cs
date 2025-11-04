@@ -5,9 +5,10 @@ class Program
 {
     static void Main(string[] args)
     {
+        Random rng = new Random();
+
         int guess;
-        Console.Write("What is the magic number?: ");
-        int magicNumber = int.Parse(Console.ReadLine());
+        int magicNumber = rng.Next(1, 101);
 
         do
         {
