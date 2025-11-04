@@ -9,6 +9,7 @@ class Program
 
         int guess;
         int magicNumber = rng.Next(1, 101);
+        int count = 0;
 
         do
         {
@@ -28,6 +29,9 @@ class Program
             {
                 Console.WriteLine("Higher");
             }
+            count++;
         } while (guess != magicNumber);
+
+        Console.WriteLine($"You guessed {count} times");
     }
 }
