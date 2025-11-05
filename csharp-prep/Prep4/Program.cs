@@ -6,6 +6,7 @@ class Program
     {
         List<double> list = new List<double>();
         double sum = 0;
+        double avg = 0;
 
         double input = -1;
 
@@ -23,5 +24,7 @@ class Program
             sum += n;
         }
         Console.WriteLine($"The total is: {sum}");
+        avg = (sum / list.Count);
+        Console.WriteLine($"The average is: {avg}");
     }
 }
