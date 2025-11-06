@@ -8,20 +8,26 @@ class Program
 
         int userSelection;
 
-        userSelection = journalMenu.ProcessMenu();
+        bool done = false;
 
-        switch(userSelection)
+        do
         {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-        }
+            userSelection = journalMenu.ProcessMenu();
+
+            switch (userSelection)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    done = true;
+                    break;
+            }
+        } while (!done);
     }
 }
