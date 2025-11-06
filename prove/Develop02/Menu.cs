@@ -3,7 +3,7 @@ class Menu
     public string[] _menuStrings =
      {
         "Welcome to the Count",
-        "You ca create, display, save, and read journal entries",
+        "You can create, display, save, and read journal entries",
         "1. Create Journal Entry",
         "2. Display Journal",
         "3. Save Journal to File",
@@ -11,11 +11,17 @@ class Menu
         "5. Quit"
     };
 
-    public void ProcessMenu()
+    public int ProcessMenu()
     {
-        foreach (string menuItem in _menuStrings)
+        int userSelection = 0;
+        do
         {
-            Console.WriteLine(menuItem);
-        }
+            foreach (string menuItem in _menuStrings)
+            {
+                Console.WriteLine(menuItem);
+            }
+            userSelection = int.Parse(Console.ReadLine());
+        } while (userSelection < 1 || userSelection > 5);
+        return userSelection;
     }
 }
