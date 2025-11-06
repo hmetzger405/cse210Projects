@@ -9,5 +9,4 @@ class SolarSystem
             planet.DisplayPlanetInformation();
         } 
     }
-
 }
