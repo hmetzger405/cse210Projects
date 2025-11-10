@@ -1,4 +1,5 @@
-class Jounral
+using System.IO;
+class Journal
 {
     public List<Entry> _entries = new List<Entry>();
 
@@ -11,13 +12,13 @@ class Jounral
     }
     public void AddEntry(Entry entry)
     {
-        entry.CreateEntry();
         _entries.Add(entry);
-
     }
     public void SaveToFile()
-    {}
+    {
+
+    }
     public void ReadFromFile()
-    {}
+    { }
 
 }
