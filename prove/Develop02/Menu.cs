@@ -2,8 +2,7 @@ class Menu
 {
     public string[] _menuStrings =
      {
-        "Welcome to the Count",
-        "You can create, display, save, and read journal entries",
+        "Please select one of the following:",
         "1. Create Journal Entry",
         "2. Display Journal",
         "3. Save Journal to File",
