@@ -35,6 +35,9 @@ class Entry
     }
     public void CreateEntry()
     {
+        // Here I added the ability to use a custom prompt
+        // While sometimes we don't what to write about, on other days there are significant
+        // events we actually are excited to write about that the random prompt might not cover 
         string customPrompt = "";
         while (customPrompt != "Y" && customPrompt != "N")
         {
