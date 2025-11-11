@@ -2,7 +2,6 @@
 {
     static void Main()
     {
-        Console.WriteLine("Hola a todo el mundo");
         Circle myCircle = new Circle();
 
         // myCircle._radius = 10;
