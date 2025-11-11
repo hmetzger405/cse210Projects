@@ -1,7 +1,7 @@
 class Menu
 {
     public string[] _menuStrings =
-     {
+    {
         "Please select one of the following:",
         "1. Create Journal Entry",
         "2. Display Journal",
@@ -19,6 +19,7 @@ class Menu
             {
                 Console.WriteLine(menuItem);
             }
+            Console.Write("What would you like to do? ");
             userSelection = int.Parse(Console.ReadLine());
         } while (userSelection < 1 || userSelection > 5);
         return userSelection;

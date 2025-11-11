@@ -8,10 +8,11 @@ class Entry
     List<string> prompts = new List<string>
     {
         "Who was the most interesting person I interacted with today?",
-        "What was the best part of my day?",
+        "What did I do today that was unusual for my regular schedule?",
         "How did I see the hand of the Lord in my life today?",
-        "What was the strongest emotion I felt today?",
-        "If I had one thing I could do over today, what would it be?"
+        "What was the hardest part of my day?",
+        "If I had one thing I could do over today, what would it be?",
+        "What is one lesson I learned today?"
     };
 
     
@@ -34,9 +35,24 @@ class Entry
     }
     public void CreateEntry()
     {
-        _prompt = prompts[rng.Next(prompts.Count + 1)];
+        string customPrompt = "";
+        while (customPrompt != "Y" && customPrompt != "N")
+        {
+            Console.Write("Would you like to use a custom prompt? (Y/N): ");
+            customPrompt = Console.ReadLine();
+        }
+        if (customPrompt == "Y")
+        {
+            Console.Write("Input the prompt you would like to use:\n > ");
+            _prompt = Console.ReadLine();
+            Console.Write("Your response:\n > ");
+        }
+        else
+        {
+            _prompt = prompts[rng.Next(prompts.Count + 1)];
+            Console.Write($"Here is today's prompt:\n{_prompt}\n > ");
+        }
         _date = dateTime.ToShortDateString();
-        Console.Write($"Here is today's prompt:\n{_prompt}\n > ");
         _response = Console.ReadLine();
     }
 }
