@@ -57,4 +57,4 @@ class Fraction
         double bottom = _bottom;
         return (top / bottom);
     }
-}
+}   
