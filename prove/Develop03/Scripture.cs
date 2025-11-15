@@ -30,10 +30,17 @@ class Scripture
         _reference = reference;    
     }
 
-    public void PrintScripture()
+    public void PrintScripture(int method)
     {
         Console.Clear();
-        Console.Write($"Welcome to the Scripture Memorizer. Press enter to remove a word, and quit when you are done.\n{_reference.GetReference()} - ");
+        if (method == 1)
+        {
+            Console.Write($"Welcome to the Scripture Memorizer. Press enter to remove a word, and quit when you are done.\n{_reference.GetReference()} - ");
+        }
+        else
+        {
+            Console.Write($"Type the missing word in lowercase ignoring punctuation\n {_reference.GetReference()} - ");
+        }
         foreach (Word word in _words)
         {
             word.WriteWord();
@@ -54,9 +61,34 @@ class Scripture
         }
     }
 
+    public string RemoveRandomPractice()
+    {
+        bool wordRemoved = false;
+        string stringOfWord = "";
+        while (!wordRemoved)
+        {
+            int wordIndex = rng.Next(0, _words.Count);
+            if (!_words[wordIndex].GetIsHidden())
+            {
+                _words[wordIndex].RemoveWord();
+                stringOfWord = _words[wordIndex].GetWord();
+                wordRemoved = true;
+            }
+        }
+        return stringOfWord;
+    }
+
     public int GetWordCount()
     {
         return _words.Count;
+    }
+
+    public void UnHideScripture()
+    {
+        foreach(Word word in _words)
+        {
+            word.UnhideWord();
+        }
     }
 
     private void ConvertToWords(string text)

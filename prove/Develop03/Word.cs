@@ -7,6 +7,10 @@ class Word
         _word = word;
         _isHidden = false;
     }
+    public string GetWord()
+    {
+        return _word;
+    }
 
     public void WriteWord()
     {
@@ -26,6 +30,11 @@ class Word
     public void RemoveWord()
     {
         _isHidden = true;
+    }
+
+    public void UnhideWord()
+    {
+        _isHidden = false;
     }
 
     public bool GetIsHidden()
