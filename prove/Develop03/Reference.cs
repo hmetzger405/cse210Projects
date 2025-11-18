@@ -4,7 +4,7 @@ class Reference
     private int _chapter;
     private int _startVerse;
     private int _endVerse;
-    bool _isMultipleVerses;
+    private bool _isMultipleVerses;
 
 
     public void SetBook(string book)
