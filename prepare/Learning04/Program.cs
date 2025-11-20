@@ -7,7 +7,7 @@ class Program
         Assignment assignment = new Assignment("Holden", "Math");
         Console.WriteLine(assignment.GetSummary());
 
-        MathAssignment myMathAssignment = new MathAssignment("Section 4.6", "Problems 1-34", "Drake", "Math");
+        MathAssignment myMathAssignment = new MathAssignment("Section 4.6", "Problems 1-34", "Drake", "Linear Algebra");
         Console.WriteLine(myMathAssignment.GetSummary());
         Console.WriteLine(myMathAssignment.GetHomeWorkList());
     }
