@@ -24,6 +24,9 @@ class Program
             case 2:
                 baseActivity.DisplayPrompt(baseActivity._prompts);
                 break;
+            case 3:
+                baseActivity.DisplaySpinner();
+                break;
         }
 
         }
