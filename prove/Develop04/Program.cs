@@ -21,6 +21,9 @@ class Program
                 baseActivity.StartActivity();
                 baseActivity.EndActivity();
                 break;
+            case 2:
+                baseActivity.DisplayPrompt(baseActivity._prompts);
+                break;
         }
 
         }

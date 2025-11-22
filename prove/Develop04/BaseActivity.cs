@@ -6,7 +6,7 @@ class BaseActivity
     private int _time = -1;
     private DateTime _startTime;
     private DateTime _endTime;
-    private List<string> _prompts;
+    public List<string> _prompts;
     private Random rng = new Random();
 
     public BaseActivity(string welcomeMessage, string description, string endingMessage, List<string> prompts)
@@ -48,6 +48,7 @@ class BaseActivity
     public void DisplayPrompt(List<string> prompts)
     {
         Console.WriteLine(prompts[rng.Next(0, prompts.Count)]);
+        Thread.Sleep(4000);
     }
     
 
