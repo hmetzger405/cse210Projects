@@ -1,5 +1,6 @@
 class ReflectionActivity : BaseActivity
 {
+    Random rng = new Random();
     private List<string> _secondaryPrompts = ["Why was this experience meaningful to you?",
     "Have you ever done anything like this before?",
     "How did you get started?",
@@ -15,6 +16,13 @@ class ReflectionActivity : BaseActivity
         "Think of a time when you helped someone in need.",
         "Think of a time when you did something truly selfless."];
     }
+    
+    public void DisplaySecondary(List<string> prompts)
+    {
+        Console.Write($"{prompts[rng.Next(0, prompts.Count)]}");
+    }
+
+
 
     public void ListPrompts(int time)
     {
@@ -25,7 +33,7 @@ class ReflectionActivity : BaseActivity
         while (!done)
         {
             Console.Write("\n> ");
-            DisplayPrompt(_secondaryPrompts);
+            DisplaySecondary(_secondaryPrompts);
             DisplaySpinner();
             if (startTime.AddSeconds(time) < DateTime.Now)
             {
@@ -36,7 +44,7 @@ class ReflectionActivity : BaseActivity
     public void DoReflectionActivity()
     {
         StartActivity();
-        Console.WriteLine("Consider the Following Prompt:\n");
+        Console.WriteLine("Consider the Following Prompt:");
         DisplayPrompt(GetPrompt());
         Console.WriteLine("\nWhen you have something in mind, press enter to continue: ");
         Console.ReadLine();

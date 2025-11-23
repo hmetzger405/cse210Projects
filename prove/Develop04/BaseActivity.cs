@@ -59,7 +59,7 @@ class BaseActivity
 
     public void DisplayPrompt(List<string> prompts)
     {
-        Console.Write(prompts[rng.Next(0, prompts.Count)]);
+        Console.Write($"\n----{prompts[rng.Next(0, prompts.Count)]}----\n");
     }
 
     public void CountDown(int time)
