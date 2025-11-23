@@ -9,6 +9,13 @@ class BaseActivity
     public List<string> _prompts;
     private Random rng = new Random();
 
+    public BaseActivity(string welcomeMessage, string description, string endingMessage)
+    {
+        _welcomeMessage = welcomeMessage;
+        _description = description;
+        _endingMessage = endingMessage;
+    }
+
     public BaseActivity(string welcomeMessage, string description, string endingMessage, List<string> prompts)
     {
         _welcomeMessage = welcomeMessage;
@@ -19,13 +26,18 @@ class BaseActivity
 
     public void StartActivity()
     {
+        Console.Clear();
         Console.WriteLine($"{_welcomeMessage}\n\n{_description}\n");
         GetTimeLength();
+        Console.Clear();
+        Console.WriteLine("Get Ready...");
+        DisplaySpinner();
     }
 
     public void EndActivity()
     {
-        Console.WriteLine($"{_endingMessage}");
+        Console.WriteLine($"\n{_endingMessage}");
+        DisplaySpinner();
     }
 
     public void GetTimeLength()
@@ -47,15 +59,25 @@ class BaseActivity
 
     public void DisplayPrompt(List<string> prompts)
     {
-        Console.WriteLine(prompts[rng.Next(0, prompts.Count)]);
-        Thread.Sleep(4000);
+        Console.Write(prompts[rng.Next(0, prompts.Count)]);
+    }
+
+    public void CountDown(int time)
+    {
+        for (int i = 0; i < time; i++)
+        {
+                Console.Write(time - i);
+                Thread.Sleep(1000);
+                Console.Write("\b");
+        }
+        Console.WriteLine(" ");
     }
 
     public void DisplaySpinner()
     {
         string animationString = "\\|/-";
         int sleepTime = 250;
-        int duration = 10;
+        int duration = 4;
         int index = 0;
         DateTime currentTime = DateTime.Now;
         DateTime endTime = currentTime.AddSeconds(duration);
@@ -66,8 +88,18 @@ class BaseActivity
             Thread.Sleep(sleepTime);
             Console.Write("\b");
         }
+        Console.Write(" ");
         Console.CursorVisible = true;
     }
-    
+    public int GetTime()
+    {
+        return _time;
+    }
+
+    public List<string> GetPrompt()
+    {
+        return _prompts;
+    }
+
 
 }   

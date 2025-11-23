@@ -6,7 +6,8 @@ class Program
     static void Main(string[] args)
     {
         Menu menu = new Menu();
-        BaseActivity baseActivity= new BaseActivity("Welcome!", "This is a test", "Good Job", ["How do you feel today", "Think of a time you stood up for someone"]);
+        BreathingActivity breathingActivity = new BreathingActivity("Welcome to the Breathing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.", "Well Done!");
+        ReflectionActivity reflectionActivity= new ReflectionActivity("Welcome to the Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.", "Well Done!");
         int decision = 0;
 
         while(decision != 4)
@@ -18,16 +19,15 @@ class Program
         switch (decision)
         {
             case 1:
-                baseActivity.StartActivity();
-                baseActivity.EndActivity();
+                breathingActivity.DoBreathingActivity();
                 break;
             case 2:
-                baseActivity.DisplayPrompt(baseActivity._prompts);
+                reflectionActivity.DoReflectionActivity();
                 break;
             case 3:
-                baseActivity.DisplaySpinner();
                 break;
         }
+
 
         }
 
