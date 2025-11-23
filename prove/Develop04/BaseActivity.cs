@@ -4,9 +4,7 @@ class BaseActivity
     private string _description;
     private string _endingMessage;
     private int _time = -1;
-    private DateTime _startTime;
-    private DateTime _endTime;
-    public List<string> _prompts;
+    protected List<string> _prompts;
     private Random rng = new Random();
 
     public BaseActivity(string welcomeMessage, string description, string endingMessage)
