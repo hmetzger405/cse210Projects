@@ -1,4 +1,4 @@
-class Person
+abstract class Person
 {
     private string _firstName;
     private string _lastName;
@@ -41,5 +41,7 @@ class Person
             _weight = 100;
         }
     }
+
+    public abstract double GetSalary();
 
 }

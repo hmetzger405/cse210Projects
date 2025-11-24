@@ -17,4 +17,9 @@ class Surgeon : Doctor
     {
         return $"{GetDoctorInformation()} - Title: {_title}";
     }
+
+    public override double GetSalary()
+    {
+        return base.GetSalary() + 100000;
+    }
 }

@@ -5,11 +5,12 @@ class Program
     public static void DisplayPersonInformation(Person person)
     {
         Console.WriteLine(person.GetPersonInformation());
+        Console.WriteLine($" ${person.GetSalary()}");
     }
     public static void Main(string[] args)
     {
-        Person myPerson = new Person("Holden", "Metzger", 22, 165);
-        Console.WriteLine(myPerson.GetPersonInformation());
+    //    Person myPerson = new Person("Holden", "Metzger", 22, 165);
+    //    Console.WriteLine(myPerson.GetPersonInformation());
 
         Police myPolice =  new Police("Teaser, flash light", "Sally", "Jones", 34, 110);
         Console.WriteLine(myPolice.GetPoliceInformation());
@@ -27,7 +28,7 @@ class Program
 
         List<Person> myPeople = new List<Person>();
         myPeople.Add(myDoctor);
-        myPeople.Add(myPerson);
+    //    myPeople.Add(myPerson);
         myPeople.Add(myPolice);
         myPeople.Add(mySurgeon);
 
