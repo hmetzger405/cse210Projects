@@ -1,5 +1,11 @@
-﻿class Program
+﻿using System.Security;
+
+class Program
 {
+    public static void DisplayPersonInformation(Person person)
+    {
+        Console.WriteLine(person.GetPersonInformation());
+    }
     public static void Main(string[] args)
     {
         Person myPerson = new Person("Holden", "Metzger", 22, 165);
@@ -13,8 +19,21 @@
 
         Surgeon mySurgeon = new Surgeon("Surgeon", "Hammer", "Tom", "Brady", 46, 230);
         Console.WriteLine(mySurgeon.GetSurgeonInformation());     
-        mySurgeon.setAge(47);
-        mySurgeon.setWeight(235);  
+        mySurgeon.SetAge(47);
+        mySurgeon.SetWeight(235);  
         Console.WriteLine(mySurgeon.GetSurgeonInformation());     
+
+        Console.WriteLine("\n\n\n\n");
+
+        List<Person> myPeople = new List<Person>();
+        myPeople.Add(myDoctor);
+        myPeople.Add(myPerson);
+        myPeople.Add(myPolice);
+        myPeople.Add(mySurgeon);
+
+        foreach(Person person in myPeople)
+        {
+            DisplayPersonInformation(person);
+        }
     }
  }

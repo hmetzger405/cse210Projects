@@ -9,6 +9,10 @@ class Police : Person
 
     public string GetPoliceInformation()
     {
-        return $"{GetPersonInformation()}, Weapons: {_weapons}";
+        return $"{base.GetPersonInformation()}, Weapons: {_weapons}";
+    } 
+    public override string GetPersonInformation()
+    {
+        return $"{base.GetPersonInformation()}, Weapons: {_weapons}";
     }
 }

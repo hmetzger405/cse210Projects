@@ -8,6 +8,11 @@ class Surgeon : Doctor
         _title = title;
     }
 
+    public override string GetPersonInformation()
+    {
+        return $"{GetDoctorInformation()} - Title: {_title}";
+    }
+
     public string GetSurgeonInformation()
     {
         return $"{GetDoctorInformation()} - Title: {_title}";

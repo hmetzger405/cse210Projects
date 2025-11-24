@@ -9,16 +9,16 @@ class Person
     {
         _firstName = firstName;
         _lastName = lastName;
-        setAge(age);
-        setWeight(weight);
+        SetAge(age);
+        SetWeight(weight);
     }
 
-    public string GetPersonInformation()
+    public virtual string GetPersonInformation()
     {
         return $"{_firstName} {_lastName} - Age: {_age}, Weight {_weight}";
     }
 
-    public void setAge(int age)
+    public void SetAge(int age)
     {
         if (age > 0)
         {
@@ -30,7 +30,7 @@ class Person
         }
     }
 
-    public void setWeight(int weight)
+    public void SetWeight(int weight)
     {
         if (weight > 0)
         {
