@@ -250,5 +250,18 @@
             "problemMatcher": "$msCompile"
         },
 
+        {
+            "label": "build-sandbox-ReferenceApp",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/sandbox/ReferenceApp/ReferenceApp.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+
     ]
 }

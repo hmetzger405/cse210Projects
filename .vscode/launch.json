@@ -250,5 +250,18 @@
             "stopAtEntry": false
         },
 
+        {
+            "name": "Reference App",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-sandbox-ReferenceApp",
+            "program": "${workspaceFolder}/final/Foundation4/bin/Debug/net8.0/ReferenceApp.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/sandbox/ReferenceApp",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
     ]
 }
