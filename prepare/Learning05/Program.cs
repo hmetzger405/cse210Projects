@@ -14,5 +14,11 @@ class Program
         Console.WriteLine(myRectangle.GetColor());
         Console.WriteLine(myRectangle.GetArea());
 
+        Circle myCircle = new Circle("blue", 4.0);
+
+        Console.WriteLine(myCircle.GetColor());
+        Console.WriteLine(myCircle.GetArea());
+
+
     }
 }
