@@ -19,4 +19,13 @@ class Goal
     {
         return $"Name: {_name}, Description: {_description}, Points: {_numberOfPoints}, Status: {_status}";
     }
+
+    public void SetPoints(int points)
+    {
+        _numberOfPoints = points;
+    }
+    public int GetPoints()
+    {
+        return _numberOfPoints;
+    }
 }
