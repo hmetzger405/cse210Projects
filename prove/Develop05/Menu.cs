@@ -12,6 +12,10 @@ class Menu
         Console.WriteLine(" 5. Record Event");
         Console.WriteLine(" 6. Quit");
 
+        Goal myGoal = new Goal("Run", "Run a lot faster");
+
+        Console.WriteLine(myGoal.GetConsoleString());
+
         try
         {
             response = int.Parse(Console.ReadLine());

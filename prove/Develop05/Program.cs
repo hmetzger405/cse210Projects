@@ -9,6 +9,7 @@ class Program
         while(response != 6)
         {
             response = menu.DisplayMenu();
+
         }
 
     }
