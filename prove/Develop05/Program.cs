@@ -11,11 +11,7 @@ class Program
         {
             response = menu.DisplayMenu();
 
-            testGoal.SetPoints(int.Parse(Console.ReadLine()));
-
-            Console.WriteLine(testGoal.GetPoints());
-
-
+            Console.WriteLine(testGoal.GetName());
         }
 
     }

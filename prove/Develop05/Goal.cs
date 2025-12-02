@@ -28,4 +28,9 @@ class Goal
     {
         return _numberOfPoints;
     }
+
+    public string GetName()
+    {
+        return _name;
+    }
 }
