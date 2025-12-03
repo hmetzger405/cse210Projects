@@ -1,4 +1,6 @@
-class Goal
+using System.Drawing;
+
+abstract class Goal
 {
     private string _name;
     private string _description;
@@ -6,20 +8,28 @@ class Goal
     private bool _status;
     private string _goalType;
 
-    public Goal(string name, string description)
+    public Goal(string name, string description, int points, bool status)
     {
         _name = name;
         _description = description;
-        _numberOfPoints = 0;
-        _status = false;
+        _numberOfPoints = points;
+        _status = status;
         _goalType = "";
     }
 
-    public virtual string GetConsoleString()
+    public string GetName()
     {
-        return $"Name: {_name}, Description: {_description}, Points: {_numberOfPoints}, Status: {_status}";
+        return _name;
+    }
+    public string GetDescription()
+    {
+        return _description;
     }
 
+    public void SetDescription(string description)
+    {
+        _description = description;
+    }
     public void SetPoints(int points)
     {
         _numberOfPoints = points;
@@ -28,9 +38,31 @@ class Goal
     {
         return _numberOfPoints;
     }
-
-    public string GetName()
+    public bool GetStatus()
     {
-        return _name;
+        return _status;
     }
+    public void MarkComplete()
+    {
+        _status = true;
+    }
+
+    public virtual string GetConsoleString()
+    {
+        return $"Name: {_name}, Description: {_description}, Points: {_numberOfPoints}, Status: {_status}";
+    }
+
+    public virtual string GetFileSystemString()
+    {
+        return $"{_goalType}#{_name}#{_description}#{_numberOfPoints}#{_status}";
+    }
+
+    public virtual string GetGoalType()
+    {
+        return _goalType;
+    }
+
+    public abstract int RecordEvent();
+
+    public abstract void CreateGoal();
 }
