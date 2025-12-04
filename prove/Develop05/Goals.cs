@@ -40,4 +40,27 @@ class Goals
             }
         }
     }
+
+    public void LoadGoals()
+    {
+        Console.Write("What is the name of the file?: ");
+        string fileName = Console.ReadLine();
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+        foreach(var line in lines)
+        {
+            string[] parts = line.Split("#");
+
+            string goalType = parts[0];
+            string name = parts[1];
+            string description = parts[2];
+            int points = int.Parse(parts[3]);
+            bool status = bool.Parse(parts[4]);
+
+            if (goalType == "SimpleGoal")
+            {
+                SimpleGoal simple = new SimpleGoal(name,description, points, status);
+                _goals.Add(simple);
+            }
+        }
+    }
 }

@@ -8,13 +8,13 @@ abstract class Goal
     private bool _status;
     private string _goalType;
 
-    public Goal(string name, string description, int points, bool status)
+    public Goal(string name, string description, int points, bool status, string goalType)
     {
         _name = name;
         _description = description;
         _numberOfPoints = points;
         _status = status;
-        _goalType = "";
+        _goalType = goalType;
     }
 
     public Goal(){}

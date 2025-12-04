@@ -36,6 +36,7 @@ class Program
                     goals.SaveGoals();
                     break;
                 case 4:
+                    goals.LoadGoals();
                     break;
                 case 5:
                     break;
