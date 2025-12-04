@@ -17,6 +17,8 @@ abstract class Goal
         _goalType = "";
     }
 
+    public Goal(){}
+
     public string GetName()
     {
         return _name;
@@ -24,6 +26,10 @@ abstract class Goal
     public string GetDescription()
     {
         return _description;
+    }
+    public void SetName(string name)
+    {
+        _name = name;
     }
 
     public void SetDescription(string description)
@@ -49,7 +55,7 @@ abstract class Goal
 
     public virtual string GetConsoleString()
     {
-        return $"Name: {_name}, Description: {_description}, Points: {_numberOfPoints}, Status: {_status}";
+        return $"{_name} ({_description})";
     }
 
     public virtual string GetFileSystemString()
