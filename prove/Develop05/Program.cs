@@ -10,6 +10,7 @@ class Program
         int response = 0;
         while(response != 6)
         {
+            Console.WriteLine($"\nYou Have {goals.GetTotalPoints()} points\n");
             response = menu.DisplayMenu();
 
             switch(response)
@@ -29,6 +30,9 @@ class Program
                             goals.AddGoal(eternal);
                             break;
                         case 3:
+                            CheckListGoal check = new CheckListGoal();
+                            check.CreateGoal();
+                            goals.AddGoal(check);
                             break;
                     }
                     break;

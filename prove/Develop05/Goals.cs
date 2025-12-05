@@ -63,6 +63,18 @@ class Goals
                 SimpleGoal simple = new SimpleGoal(name,description, points, status);
                 _goals.Add(simple);
             }
+            else if (goalType == "EternalGoal")
+            {
+                EternalGoal eternalGoal = new EternalGoal(name, description, points, status);
+                _goals.Add(eternalGoal);
+            }
+            else if(goalType == "CheckListGoal")
+            {
+                int completions = int.Parse(parts[5]);
+                int max = int.Parse(parts[6]);
+                CheckListGoal checkListGoal = new CheckListGoal(name, description, points, status, completions, max);
+                _goals.Add(checkListGoal);
+            }
         }
     }   
     public void RecordEvent()
@@ -90,5 +102,10 @@ class Goals
         }while(!(response < i && response > 0));
         _totalScore += _goals[response-1].RecordEvent();
         Console.WriteLine($"You now have {_totalScore} points");
+    }
+
+    public int GetTotalPoints()
+    {
+        return _totalScore;
     }
 }

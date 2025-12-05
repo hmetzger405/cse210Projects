@@ -35,7 +35,7 @@ class Menu
             Console.WriteLine(" 1. Simple Goal");
             Console.WriteLine(" 2. Eternal Goal");
             Console.WriteLine(" 3. Checklist Goal");
-            Console.Write("Which type if goal would you like to create? ");
+            Console.Write("Which type of goal would you like to create? ");
             try
             {
                 response = int.Parse(Console.ReadLine());

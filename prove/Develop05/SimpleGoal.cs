@@ -33,6 +33,11 @@ class SimpleGoal : Goal
 
     public override int RecordEvent()
     {
+        if (GetStatus())
+        {
+            Console.WriteLine("Goal already complete");
+            return 0;
+        }
         MarkComplete();
         Console.WriteLine($"Congratualions! You earned {GetPoints()} points!");
         return GetPoints();
