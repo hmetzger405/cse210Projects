@@ -24,6 +24,9 @@ class Program
                             goals.AddGoal(simple);
                             break;
                         case 2:
+                            EternalGoal eternal = new EternalGoal();
+                            eternal.CreateGoal();
+                            goals.AddGoal(eternal);
                             break;
                         case 3:
                             break;
