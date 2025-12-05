@@ -4,6 +4,7 @@ class Goals
 {
     private List<Goal> _goals = new List<Goal>();
     private int _totalScore;
+    private int _pointGoal;
     
     public void AddGoal(Goal goal)
     {
@@ -106,5 +107,28 @@ class Goals
     public int GetTotalPoints()
     {
         return _totalScore;
+    }
+
+    public void SetPointGoal()
+    {
+        Console.Write("Set a goal for total number of points to earn: ");
+        bool success = false;
+        while(!success)
+        {
+            try
+            {
+                _pointGoal = int.Parse(Console.ReadLine());
+                success = true;
+            }
+            catch
+            {
+                Console.Write("Please Input an Integer Value: ");
+            }
+        }
+    }
+
+    public int GetPointGoal()
+    {
+        return _pointGoal;
     }
 }

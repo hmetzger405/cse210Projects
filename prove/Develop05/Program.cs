@@ -8,7 +8,8 @@ class Program
         Menu menu = new Menu();
         Goals goals = new Goals();
         int response = 0;
-        while(response != 6)
+        goals.SetPointGoal();
+        while(response != 6 && goals.GetTotalPoints() < goals.GetPointGoal())
         {
             Console.WriteLine($"\nYou Have {goals.GetTotalPoints()} points\n");
             response = menu.DisplayMenu();
@@ -49,6 +50,10 @@ class Program
                     goals.RecordEvent();
                     break;
             }
+        }
+        if (goals.GetTotalPoints() >= goals.GetPointGoal())
+        {
+            Console.WriteLine("Congrats! You acheived your total point goal!");
         }
 
     }
