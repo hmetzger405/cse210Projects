@@ -3,7 +3,6 @@ using System.Runtime.CompilerServices;
 class Goals
 {
     private List<Goal> _goals = new List<Goal>();
-    private string _fileName;
     private int _totalScore;
     
     public void AddGoal(Goal goal)
