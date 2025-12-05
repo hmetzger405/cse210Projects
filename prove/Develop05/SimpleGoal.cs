@@ -33,6 +33,8 @@ class SimpleGoal : Goal
 
     public override int RecordEvent()
     {
-        return 0;
+        MarkComplete();
+        Console.WriteLine($"Congratualions! You earned {GetPoints()} points!");
+        return GetPoints();
     }
 }

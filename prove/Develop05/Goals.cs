@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 class Goals
 {
     private List<Goal> _goals = new List<Goal>();
@@ -62,5 +64,31 @@ class Goals
                 _goals.Add(simple);
             }
         }
+    }   
+    public void RecordEvent()
+    {
+        Console.WriteLine("The goals are: ");
+        int i = 1;
+        int response = 0;
+        foreach(Goal goal in _goals)
+        {
+            Console.WriteLine($"{i}. {goal.GetName()}");
+            i++;
+        }
+        Console.Write("Which goal did you accomplish? ");
+        do
+        {
+            try
+            {
+                response = int.Parse(Console.ReadLine());
+
+            }
+            catch
+            {
+                Console.WriteLine("Input must be an integer");
+            }
+        }while(!(response < i && response > 0));
+        _totalScore += _goals[response-1].RecordEvent();
+        Console.WriteLine($"You now have {_totalScore} points");
     }
 }

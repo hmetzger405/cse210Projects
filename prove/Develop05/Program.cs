@@ -39,6 +39,7 @@ class Program
                     goals.LoadGoals();
                     break;
                 case 5:
+                    goals.RecordEvent();
                     break;
             }
         }
