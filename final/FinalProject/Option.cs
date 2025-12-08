@@ -2,7 +2,7 @@ class Option : Investment
 {
     private DateTime _expirationDate;
     private string _sector;
-    public Option(double value, string sector, DateTime expirationDate) : base(value)
+    public Option(double value, string sector, DateTime expirationDate) : base(value, "Option")
     {
         _expirationDate = expirationDate;
         _sector = sector;

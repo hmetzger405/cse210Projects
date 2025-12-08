@@ -2,11 +2,18 @@ abstract class Investment
 {
     private double _initialValue;
     private double _currentValue;
+    private string _name;
 
-    public Investment(double value)
+    public Investment(double value, string name)
     {
         _initialValue = value;
         _currentValue = value;
+        _name = name;
+    }
+
+    public string GetName()
+    {
+        return _name;
     }
 
     public void SetIinitialValue(double value)
@@ -34,5 +41,25 @@ abstract class Investment
         return _currentValue;
     }
 
+    public double GetReturnRate()
+    {
+        return ((_currentValue - _initialValue) / _initialValue) * 100;
+    }
+
+    public virtual void DisplayInvestment()
+    {
+        double returnRate = GetReturnRate();
+        if (returnRate >= 0)
+        {
+            Console.WriteLine($"{_name}: ${_currentValue} - +%{returnRate}");
+        }
+        else
+        {
+            Console.WriteLine($"{_name}: {_currentValue} - %{returnRate}");
+        }
+
+    }
+
     public abstract void UpdateValue();
+
 }

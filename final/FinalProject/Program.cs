@@ -5,17 +5,37 @@ class Program
 {
     static void Main(string[] args)
     {
-        Bond myBond = new Bond(100);
-        IndexFund myIndexFund = new IndexFund(100, "General");
-        Option myOption = new Option(100, "Tech", DateTime.Now);
-        Portfolio myPortfolio = new Portfolio();
-
-        myPortfolio.AddInvestment(myBond);
-        myPortfolio.AddInvestment(myIndexFund);
-        myPortfolio.AddInvestment(myOption);        
-
-
-
+        Menu myMenu = new Menu();
+        Portfolio myPortfolio = new Portfolio(20000);
+        int response = -1;
+        while (response != 0)
+        {
+            response = myMenu.DisplayGameMenu();
+            switch(response)
+            {
+                case 1:
+                    myPortfolio.DisplayInvestments();
+                    break;
+                case 2:
+                    int newResponse;
+                    newResponse = myMenu.DisplayInvestmentMenu();
+                    switch(newResponse)
+                    {
+                        case 1:
+                            string sector = myMenu.DisplaySectorMenu();
+                            myPortfolio.CreateIndexFund(sector);
+                            break;
+                        case 2: 
+                            sector = myMenu.DisplaySectorMenu();
+                            myPortfolio.CreateOption(sector);
+                            break;
+                        case 3:
+                            myPortfolio.CreateBond();
+                            break;
+                    }
+                    break;
+            }
+        }
 
     }
-}
+ }
