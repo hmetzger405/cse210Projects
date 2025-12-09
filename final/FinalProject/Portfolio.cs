@@ -39,6 +39,15 @@ class Portfolio
         _investments.Remove(investment);
     }   
 
+    public void SellAsset()
+    {
+        Console.WriteLine("Which investment would you like to sell? ");
+        DisplayInvestments();
+        Console.WriteLine(" > ");
+        
+
+    }
+
     public void CreateBond()
     {
         Console.WriteLine("How much would you like to put into this bond? ");

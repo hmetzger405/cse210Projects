@@ -1,27 +1,38 @@
 class Menu
 {
+    public int ProcessInt()
+    {
+        int response = 0;
+        bool success = false;
+        while(!success)
+        {
+            try
+            {
+                response = int.Parse(Console.ReadLine());
+                success = true;
+            }
+            catch
+            {
+                Console.Write("Please Input an Integer Value\n > ");
+            }
+        }
+        return response;
+    }
     public int DisplayGameMenu()
     {
         int response = 0;
-        while(response < 1 || response > 3)
+        while(response < 1 || response > 4)
         {
             Console.WriteLine("Menu: ");
             Console.WriteLine(" 1. View Investments");
             Console.WriteLine(" 2. Make New Investment");
             Console.WriteLine(" 3. Sell Investment");
+            Console.WriteLine(" 4. Quit");
             Console.Write(" > ");
-            bool success = false;
-            while(!success)
+            response = ProcessInt();
+            if (response < 1 || response > 4)
             {
-                try
-                {
-                    response = int.Parse(Console.ReadLine());
-                    success = true;
-                }
-                catch
-                {
-                    Console.WriteLine("Please Input an Integer Value");
-                }
+                Console.WriteLine("Chose an input on the menu");
             }
         }
         return response;
@@ -36,18 +47,10 @@ class Menu
             Console.WriteLine(" 2. Option");
             Console.WriteLine(" 3. Bond");
             Console.Write(" > ");
-            bool success = false;
-            while(!success)
+            response = ProcessInt();
+            if (response < 1 || response > 3)
             {
-                try
-                {
-                    response = int.Parse(Console.ReadLine());
-                    success = true;
-                }
-                catch
-                {
-                    Console.WriteLine("Please Input an Integer Value");
-                }
+                Console.WriteLine("Chose an input on the menu");
             }
         }
         return response;
@@ -64,19 +67,7 @@ class Menu
             Console.WriteLine(" 1. General Market");
             Console.WriteLine(" 2. Technology");
             Console.WriteLine(" 3. Real Estate");
-            bool success = false;
-            while(!success)
-            {
-                try
-                {
-                    response = int.Parse(Console.ReadLine());
-                    success = true;
-                }
-                catch
-                {
-                    Console.WriteLine("Please Input an Integer Value");
-                }
-            }
+            response = ProcessInt();
             if (response > 3 || response < 1)
             {
                 Console.WriteLine("Please choose one of the options above");

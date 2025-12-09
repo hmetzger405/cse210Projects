@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Channels;
+using System.Threading.Tasks.Dataflow;
 
 class Program
 {
@@ -7,8 +8,8 @@ class Program
     {
         Menu myMenu = new Menu();
         Portfolio myPortfolio = new Portfolio(20000);
-        int response = -1;
-        while (response != 0)
+        int response = 0;
+        while (response != 4)
         {
             response = myMenu.DisplayGameMenu();
             switch(response)
@@ -33,7 +34,7 @@ class Program
                             myPortfolio.CreateBond();
                             break;
                     }
-                    break;
+                    break;                    
             }
         }
 
