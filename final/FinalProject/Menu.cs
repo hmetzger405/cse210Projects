@@ -21,16 +21,17 @@ class Menu
     public int DisplayGameMenu()
     {
         int response = 0;
-        while(response < 1 || response > 4)
+        while(response < 1 || response > 5)
         {
             Console.WriteLine("Menu: ");
             Console.WriteLine(" 1. View Investments");
             Console.WriteLine(" 2. Make New Investment");
             Console.WriteLine(" 3. Sell Investment");
-            Console.WriteLine(" 4. Quit");
+            Console.WriteLine(" 4. Move Forward");
+            Console.WriteLine(" 5. Quit");
             Console.Write(" > ");
             response = ProcessInt();
-            if (response < 1 || response > 4)
+            if (response < 1 || response > 5)
             {
                 Console.WriteLine("Chose an input on the menu");
             }
@@ -86,5 +87,28 @@ class Menu
                 break;
         }
         return sector;
+    }
+
+    public int DisplayTimeMenu()
+    {
+        int response = 0;
+        while(response < 1 || response > 6)
+        {
+            Console.WriteLine("Chose the amount of Time to Simulate: ");
+            Console.WriteLine(" 1. 1 Week");
+            Console.WriteLine(" 2. 1 Month");
+            Console.WriteLine(" 3. 3 Months");
+            Console.WriteLine(" 4. 6 Months");
+            Console.WriteLine(" 5. 1 Year");
+            Console.WriteLine(" 6. 10 Years");
+            Console.Write(" > ");
+            response = ProcessInt();
+            if (response < 1 || response > 6)
+            {
+                Console.WriteLine("Chose an input on the menu");
+            }
+        }
+        return response;
+        
     }
 }
