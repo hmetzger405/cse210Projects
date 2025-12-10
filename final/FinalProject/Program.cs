@@ -11,6 +11,8 @@ class Program
         int response = 0;
         while (response != 4)
         {
+            Console.WriteLine($"Cash: ${myPortfolio.GetCash()}");
+
             response = myMenu.DisplayGameMenu();
             switch(response)
             {
@@ -34,7 +36,10 @@ class Program
                             myPortfolio.CreateBond();
                             break;
                     }
-                    break;                    
+                    break;  
+                case 3:
+                    myPortfolio.SellAsset();
+                    break;                
             }
         }
 

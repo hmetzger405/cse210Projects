@@ -23,8 +23,11 @@ class Portfolio
 
     public void DisplayInvestments()
     {
+        int i = 0;
         foreach(Investment investment in _investments)
         {
+            i++;
+            Console.Write($"{i}. ");
             investment.DisplayInvestment();
         }
     }
@@ -43,8 +46,28 @@ class Portfolio
     {
         Console.WriteLine("Which investment would you like to sell? ");
         DisplayInvestments();
-        Console.WriteLine(" > ");
-        
+        Console.Write(" > ");
+        int response = 0;
+        bool success = false;
+        while(!success)
+        {
+            try
+            {
+                response = int.Parse(Console.ReadLine());
+                success = true;
+            }
+            catch
+            {
+                Console.Write("Please Input an Integer Value\n > ");
+            }
+            if(success && (response < 1 || response > _investments.Count()))
+            {
+                Console.Write("Please Choose the Number of an Investment");
+                success = false;
+            }
+        }
+        _cash += _investments[response - 1].SellAsset();
+
 
     }
 
@@ -71,6 +94,7 @@ class Portfolio
             }
         }
         Bond myBond = new Bond(value);
+        _cash -= value;
         _investments.Add(myBond);
     }
 
@@ -97,6 +121,7 @@ class Portfolio
             }
         }
         IndexFund myIndexFund = new IndexFund(value, sector);
+        _cash -= value;
         _investments.Add(myIndexFund);
     }
 
@@ -123,6 +148,7 @@ class Portfolio
             }
         }
         Option myOption = new Option(value, sector, DateTime.Now);
+        _cash -= value;
         _investments.Add(myOption);
     }
 }
