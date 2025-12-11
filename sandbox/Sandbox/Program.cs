@@ -21,11 +21,13 @@ class Program
         //     Console.Write("\b");
         // }
 
-        // int [] DaysInTheMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int [] DaysInTheMonth = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-        // Months CurrentMonth = December;
+        Months CurrentMonth = December;
 
-        // Console.WriteLine($"{DaysInTheMonth[(int)CurrentMonth]}");
+        Console.WriteLine($"{DaysInTheMonth[(int)CurrentMonth]}");
+        Console.WriteLine($"{DaysInTheMonth[(int)November]}");
+        Console.WriteLine($"{DaysInTheMonth[(int)August]}");
 
         Console.WriteLine("Hola! Como estas mi amigo. Que le guste el nuevo branch");
     }
