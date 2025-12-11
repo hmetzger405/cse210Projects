@@ -8,7 +8,9 @@ class Program
     {
         Menu myMenu = new Menu();
         Portfolio myPortfolio = new Portfolio(20000);
+        Calendar myCalender = new Calendar(61);
         int response = 0;
+        myCalender.DisplayDate();
         while (response != 5)
         {
             Console.WriteLine($"Cash: ${myPortfolio.GetCash()}");
