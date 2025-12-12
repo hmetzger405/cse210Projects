@@ -1,32 +1,30 @@
 class Calendar
 {
-    private int _timeWeeks;
+    private int _timeWeeks = 1;
     private string [] _months = {"January", "February", "March", "April", "May", "June"
     , "July", "August", "September", "October", "November", "December"};
 
-    public Calendar(int timeWeeks)
+    public Calendar(int weeks)
     {
-        _timeWeeks = timeWeeks;
+        _timeWeeks = weeks;
     }
-
     public void DisplayDate()
     {
-        int years = 1 + _timeWeeks / 48;
+        int years;
         int months;
         int weeks;
-        if (((_timeWeeks % 48) % 4) == 0)
-        {
-            months = ((_timeWeeks % 48) / 4) - 1;
-            weeks = 4;
-            
-        }
-        else
-        {
-            months = ((_timeWeeks % 48) / 4);
-            weeks = (_timeWeeks % 48) % 4;
-        }
+        years = 1 + (_timeWeeks - 1) / 48;
+        months = 1 + ((_timeWeeks - 1) / 4 % 12);
+        weeks = 1 + (_timeWeeks -1) % 4;
 
-        Console.WriteLine($"Year {years}, Week {weeks} of {_months[months]}");
+
+
+        Console.WriteLine($"Year {years}, Week {weeks} of {_months[months - 1]}");
+    }
+
+    public void MoveForward(int weeks)
+    {
+        _timeWeeks += weeks;
     }
 
 }

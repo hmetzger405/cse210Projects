@@ -1,6 +1,6 @@
 class Bond : Investment
 {
-    private double _rate = 0.3;
+    private double _rate = .000625;
     public Bond(double value) : base(value, "Bond"){}
     public override void UpdateValue()
     {

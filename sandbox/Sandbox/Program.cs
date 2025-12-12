@@ -28,7 +28,5 @@ class Program
         Console.WriteLine($"{DaysInTheMonth[(int)CurrentMonth]}");
         Console.WriteLine($"{DaysInTheMonth[(int)November]}");
         Console.WriteLine($"{DaysInTheMonth[(int)August]}");
-
-        Console.WriteLine("Hola! Como estas mi amigo. Que le guste el nuevo branch");
     }
 }
