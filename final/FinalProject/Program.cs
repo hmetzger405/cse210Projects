@@ -8,13 +8,14 @@ class Program
     {
         Menu myMenu = new Menu();
         Portfolio myPortfolio = new Portfolio(20000);
-        Calendar myCalender = new Calendar(12);
+        Calendar myCalender = new Calendar(1);
         int response = 0;
-        while (response != 5)
+        while (response != 6)
         {
+            Console.Clear();
             myCalender.DisplayDate();
             myPortfolio.DisplayCash();
-
+            myPortfolio.GetPortfolioValue();
             response = myMenu.DisplayGameMenu();
             switch(response)
             {
@@ -75,7 +76,10 @@ class Program
                             myPortfolio.UpdateValues(480);
                             break;
                     }
-                    break;           
+                    break;      
+                case 5:
+                    myMenu.DisplayIntro();
+                    break;     
             }
         }
     }

@@ -27,12 +27,19 @@ class Portfolio
         Console.WriteLine($"Cash: {_cash:C2}");
     }
 
-    public void DisplayReturns()
+    public void GetPortfolioValue()
     {
+        double total = 0;
+        foreach (Investment investment in _investments)
+        {
+            total += investment.GetCurrentValue();
+        }
+        Console.WriteLine($"Portfolio Value: {total:C2}");
     }
 
     public void DisplayInvestments()
     {
+        Console.Clear();
         int i = 0;
         foreach(Investment investment in _investments)
         {
@@ -40,6 +47,8 @@ class Portfolio
             Console.Write($"{i}. ");
             investment.DisplayInvestment();
         }
+        Console.Write("(Press Enter to Continue)");
+        Console.ReadLine();
     }
 
     public void AddInvestment(Investment investment)
@@ -112,7 +121,7 @@ class Portfolio
 
     public void CreateBond()
     {
-        Console.WriteLine("How much would you like to put into this bond? ");
+        Console.Write("How much, in dollars, would you like to put into this bond?\n $");
         double value = -1;
         bool success = false;
         while(!success)
@@ -139,7 +148,7 @@ class Portfolio
 
     public void CreateIndexFund(string sector)
     {
-        Console.WriteLine("How much would you like to put into this Index Fund? ");
+        Console.Write("How much, in dollars, would you like to put into this Index Fund?\n > $");
         double value = -1;
         bool success = false;
         while(!success)
@@ -166,7 +175,7 @@ class Portfolio
 
     public void CreateOption(string sector)
     {
-        Console.WriteLine("How much would you like to put into this Option? ");
+        Console.Write("How much, in dollars, would you like to put into this Option? \n > $");
         double value = -1;
         bool success = false;
         while(!success)
