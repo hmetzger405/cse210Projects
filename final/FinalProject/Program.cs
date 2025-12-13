@@ -13,7 +13,7 @@ class Program
         while (response != 5)
         {
             myCalender.DisplayDate();
-            Console.WriteLine($"Cash: ${myPortfolio.GetCash()}");
+            myPortfolio.DisplayCash();
 
             response = myMenu.DisplayGameMenu();
             switch(response)
@@ -48,25 +48,31 @@ class Program
                     {
                         case 1:
                             myCalender.MoveForward(1);
+                            myPortfolio.UpdateValues(1);
                             break;
                         case 2:
                             myCalender.MoveForward(4);
+                            myPortfolio.UpdateValues(4);
                             break;
                         case 3:
                             // Move Forward 3 Months
                             myCalender.MoveForward(12);
+                            myPortfolio.UpdateValues(12);
                             break;
                         case 4:
                             // Move Forward 6 Months
                             myCalender.MoveForward(36);
+                            myPortfolio.UpdateValues(36);
                             break;
                         case 5:
                             // Move Forward 1 Year
                             myCalender.MoveForward(48);
+                            myPortfolio.UpdateValues(48);
                             break;
                         case 6:
                             // Move Forward 10 Years
                             myCalender.MoveForward(480);
+                            myPortfolio.UpdateValues(480);
                             break;
                     }
                     break;           

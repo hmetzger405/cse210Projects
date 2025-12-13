@@ -8,7 +8,7 @@ class Option : Investment
         _sector = sector;
     }
 
-    public override void UpdateValue()
+    public override void UpdateValue(double gRate, double tRate, double reifRate)
     {
     }
 }

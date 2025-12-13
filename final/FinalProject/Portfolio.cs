@@ -1,7 +1,11 @@
+using System.Runtime.CompilerServices;
+using System.Runtime.ExceptionServices;
+
 class Portfolio
 {
     private List<Investment> _investments = new List<Investment>();
     private double _cash;
+    MarketManager _manager = new MarketManager();
 
     public Portfolio(double cash)
     {
@@ -15,6 +19,11 @@ class Portfolio
     public void SetCash(double cash)
     {
         _cash = cash;
+    }
+
+    public void DisplayCash()
+    {
+        Console.WriteLine($"Cash: {_cash:C2}");
     }
 
     public void DisplayReturns()
@@ -44,31 +53,49 @@ class Portfolio
 
     public void SellAsset()
     {
-        Console.WriteLine("Which investment would you like to sell? ");
-        DisplayInvestments();
-        Console.Write(" > ");
-        int response = 0;
-        bool success = false;
-        while(!success)
+        if (_investments.Count() != 0)
         {
-            try
+            Console.WriteLine("Which investment would you like to sell? ");
+            DisplayInvestments();
+            Console.Write(" > ");
+            int response = 0;
+            bool success = false;
+            while(!success)
             {
-                response = int.Parse(Console.ReadLine());
-                success = true;
+                try
+                {
+                    response = int.Parse(Console.ReadLine());
+                    success = true;
+                }
+                catch
+                {
+                    Console.Write("Please Input an Integer Value\n > ");
+                }
+                if(success && (response < 1 || response > _investments.Count()))
+                {
+                    Console.Write("Please Choose the Number of an Investment");
+                    success = false;
+                }
             }
-            catch
+            _cash += _investments[response - 1].SellAsset();
+            _investments.RemoveAt(response - 1);
+        }
+        else
+        {
+            Console.WriteLine("You Don't Own Any Investments!");
+        }
+    }
+
+    public void UpdateValues(int weeks)
+    {
+        for (int i = 1; i <= weeks; i++)
+        {
+            _manager.SetReturns();
+            foreach(Investment investment in _investments)
             {
-                Console.Write("Please Input an Integer Value\n > ");
-            }
-            if(success && (response < 1 || response > _investments.Count()))
-            {
-                Console.Write("Please Choose the Number of an Investment");
-                success = false;
+                investment.UpdateValue(_manager.GetGeneralReturn(), _manager.GetTechReturn(), _manager.GetRealEstateReturn());
             }
         }
-        _cash += _investments[response - 1].SellAsset();
-
-
     }
 
     public void CreateBond()

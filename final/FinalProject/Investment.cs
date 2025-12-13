@@ -51,15 +51,15 @@ abstract class Investment
         double returnRate = GetReturnRate();
         if (returnRate >= 0)
         {
-            Console.WriteLine($"{_name}: ${_currentValue} - +%{returnRate}");
+            Console.WriteLine($"{_name}: {_currentValue:C2} - +%{returnRate:F2}");
         }
         else
         {
-            Console.WriteLine($"{_name}: {_currentValue} - %{returnRate}");
+            Console.WriteLine($"{_name}: {_currentValue:C2} - %{returnRate:F2}");
         }
 
     }
 
-    public abstract void UpdateValue();
+    public abstract void UpdateValue(double gRate, double tRate, double reifRate);
 
 }

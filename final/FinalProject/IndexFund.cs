@@ -11,14 +11,32 @@ class IndexFund : Investment
         double returnRate = GetReturnRate();
         if (returnRate >= 0)
         {
-            Console.WriteLine($"{_sector} {GetName()}: ${GetCurrentValue()} - +%{returnRate}");
+            Console.WriteLine($"{_sector} {GetName()}: {GetCurrentValue():C2} - +%{returnRate:F2}");
         }
         else
         {
-            Console.WriteLine($"{_sector}{GetName}: {GetCurrentValue()} - %{returnRate}");
+            Console.WriteLine($"{_sector}{GetName()}: {GetCurrentValue():C2} - %{returnRate:F2}");
         }
     }
-    public override void UpdateValue()
+    public override void UpdateValue(double gRate, double tRate, double reifRate)
     {
+        if(_sector == "General")
+        {
+            double value = GetCurrentValue();
+            double newValue = value * (1+gRate);
+            SetCurrentValue(newValue);
+        }
+        if(_sector == "Tech")
+        {
+            double value = GetCurrentValue();
+            double newValue = value * (1+tRate);
+            SetCurrentValue(newValue);
+        }
+        if(_sector == "RealEstate")
+        {
+            double value = GetCurrentValue();
+            double newValue = value * (1+reifRate);
+            SetCurrentValue(newValue);
+        }
     }
 }
