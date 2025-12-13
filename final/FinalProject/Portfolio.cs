@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Runtime.ExceptionServices;
 
@@ -96,6 +97,17 @@ class Portfolio
                 investment.UpdateValue(_manager.GetGeneralReturn(), _manager.GetTechReturn(), _manager.GetRealEstateReturn());
             }
         }
+        for (int i = _investments.Count() - 1; i >= 0; i--)
+        {
+            Investment investment = _investments[i];
+            if (investment is Option option && option.GetWeeksTillExpiration() <= 0)
+            {
+                _cash += option.GetCurrentValue();
+                Console.WriteLine($"An option was sold at {option.GetCurrentValue():C2}");
+                _investments.Remove(option);
+            }
+        }
+        
     }
 
     public void CreateBond()
@@ -174,7 +186,27 @@ class Portfolio
                 Console.WriteLine("You Don't Have Enough Money! Please Try Again");
             }
         }
-        Option myOption = new Option(value, sector, DateTime.Now);
+        Console.WriteLine("How far out, in weeks, would you like the expiration date to be?");
+        int exp = -1;
+        bool success2 = false;
+        while(!success2)
+        {
+            try
+            {
+                exp = int.Parse(Console.ReadLine());
+                success2 = true;
+            }
+            catch
+            {
+                Console.WriteLine("Please Input an Integer Value");
+            }
+            if (exp < 1)
+            {
+                success = false;
+                Console.WriteLine("In must expire in at least 1 week");
+            }
+        }
+        Option myOption = new Option(value, sector, exp);
         _cash -= value;
         _investments.Add(myOption);
     }
