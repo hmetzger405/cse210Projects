@@ -26,13 +26,13 @@ class IndexFund : Investment
             double newValue = value * (1+gRate);
             SetCurrentValue(newValue);
         }
-        if(_sector == "Tech")
+        if(_sector == "Technology")
         {
             double value = GetCurrentValue();
             double newValue = value * (1+tRate);
             SetCurrentValue(newValue);
         }
-        if(_sector == "RealEstate")
+        if(_sector == "Real Estate")
         {
             double value = GetCurrentValue();
             double newValue = value * (1+reifRate);

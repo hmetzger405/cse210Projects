@@ -125,10 +125,10 @@ class Menu
                 sector = "General";
                 break;
             case 2:
-                sector = "Tech";
+                sector = "Technology";
                 break;
             case 3: 
-                sector = "RealEstate";
+                sector = "Real Estate";
                 break;
         }
         return sector;

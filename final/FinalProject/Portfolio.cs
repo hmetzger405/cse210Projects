@@ -165,9 +165,9 @@ class Portfolio
     public void CreateIndexFund(string sector)
     {
         Console.Write("How much, in dollars, would you like to put into this Index Fund?\n > $");
-        double value = -1;
+        double value = 1;
         bool success = false;
-        while(!success)
+        while(!success ) 
         {
             try
             {
@@ -181,7 +181,7 @@ class Portfolio
             if (value > _cash)
             {
                 success = false;
-                Console.WriteLine("You Don't Have Enough Money! Please Try Again");
+                Console.WriteLine("You Don't Have Enough Money! Please Try Again \n > $");
             }
         }
         IndexFund myIndexFund = new IndexFund(value, sector);
@@ -208,7 +208,7 @@ class Portfolio
             if (value > _cash)
             {
                 success = false;
-                Console.WriteLine("You Don't Have Enough Money! Please Try Again");
+                Console.WriteLine("You Don't Have Enough Money! Please Try Again \n > $");
             }
         }
         Console.WriteLine("How far out, in weeks, would you like the expiration date to be?");

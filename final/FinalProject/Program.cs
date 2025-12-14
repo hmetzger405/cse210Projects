@@ -10,6 +10,8 @@ class Program
         Portfolio myPortfolio = new Portfolio(20000);
         Calendar myCalender = new Calendar(1);
         int response = 0;
+
+        myMenu.DisplayIntro();
         while (response != 6)
         {
             Console.Clear();
@@ -56,22 +58,18 @@ class Program
                             myPortfolio.UpdateValues(4);
                             break;
                         case 3:
-                            // Move Forward 3 Months
                             myCalender.MoveForward(12);
                             myPortfolio.UpdateValues(12);
                             break;
                         case 4:
-                            // Move Forward 6 Months
                             myCalender.MoveForward(36);
                             myPortfolio.UpdateValues(36);
                             break;
                         case 5:
-                            // Move Forward 1 Year
                             myCalender.MoveForward(48);
                             myPortfolio.UpdateValues(48);
                             break;
                         case 6:
-                            // Move Forward 10 Years
                             myCalender.MoveForward(480);
                             myPortfolio.UpdateValues(480);
                             break;
