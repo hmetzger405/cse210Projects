@@ -65,7 +65,6 @@ class Portfolio
             }
                 break;
         }
-
     }
 
     public void AddInvestment(Investment investment)
@@ -131,8 +130,7 @@ class Portfolio
                 Console.WriteLine($"An option was sold at {option.GetCurrentValue():C2}");
                 _investments.Remove(option);
             }
-        }
-        
+        }  
     }
 
     public void CreateBond()

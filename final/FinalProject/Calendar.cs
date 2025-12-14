@@ -17,8 +17,6 @@ class Calendar
         months = 1 + ((_timeWeeks - 1) / 4 % 12);
         weeks = 1 + (_timeWeeks -1) % 4;
 
-
-
         Console.WriteLine($"Year {years}, Week {weeks} of {_months[months - 1]}");
     }
 

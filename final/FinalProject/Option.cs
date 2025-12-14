@@ -24,7 +24,6 @@ class Option : Investment
         {
             Console.WriteLine($"{_sector} {GetName()}: {GetCurrentValue():C2} - %{returnRate:F2} -> Expires in {_weeksTillExpiration} weeks");
         }
-
     }
 
     public override void UpdateValue(double gRate, double tRate, double reifRate)

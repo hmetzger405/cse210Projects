@@ -154,6 +154,5 @@ class Menu
             }
         }
         return response;
-        
     }
 }
