@@ -37,18 +37,35 @@ class Portfolio
         Console.WriteLine($"Portfolio Value: {total:C2}");
     }
 
-    public void DisplayInvestments()
+    public void DisplayInvestments(int context)
     {
-        Console.Clear();
         int i = 0;
-        foreach(Investment investment in _investments)
+        switch(context)
         {
-            i++;
-            Console.Write($"{i}. ");
-            investment.DisplayInvestment();
+            case 1:
+            Console.Clear();
+            foreach(Investment investment in _investments)
+            {
+                i++;
+                Console.Write($"{i}. ");
+                investment.DisplayInvestment();
+            }
+                Console.Write("(Press Enter to Continue)");
+                Console.ReadLine();
+                break;
+            case 2:
+            Console.Clear();
+            Console.WriteLine("Which investment would you like to sell? ");
+            foreach(Investment investment in _investments)
+            {
+                i++;
+                
+                Console.Write($"{i}. ");
+                investment.DisplayInvestment();
+            }
+                break;
         }
-        Console.Write("(Press Enter to Continue)");
-        Console.ReadLine();
+
     }
 
     public void AddInvestment(Investment investment)
@@ -65,8 +82,7 @@ class Portfolio
     {
         if (_investments.Count() != 0)
         {
-            Console.WriteLine("Which investment would you like to sell? ");
-            DisplayInvestments();
+            DisplayInvestments(2);
             Console.Write(" > ");
             int response = 0;
             bool success = false;

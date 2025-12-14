@@ -20,7 +20,7 @@ class Program
             switch(response)
             {
                 case 1:
-                    myPortfolio.DisplayInvestments();
+                    myPortfolio.DisplayInvestments(1);
                     break;
                 case 2:
                     int newResponse;
